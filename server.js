@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const Port = 3000;
+const PORT = process.env.PORT || 3000;
 const mongoURI = "mongodb+srv://ashishvalvinvp:O1z1gYSWysjEInwq@namasteashish.447hw.mongodb.net/?retryWrites=true&w=majority&appName=namasteAshish";
 const User = require('./usermodel')
+
 
 app.use(express.json());// parse incoming json req
 mongoose.connect(mongoURI).then(()=>{
@@ -26,6 +27,4 @@ app.post("/signup", async(req,res)=>{
     }
 })
 
-app.listen(Port, () => {
-    console.log(`Server is running on http://localhost:${Port}`);
-  });
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
