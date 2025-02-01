@@ -4,7 +4,13 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
 const mongoURI = "mongodb+srv://ashishvalvinvp:O1z1gYSWysjEInwq@namasteashish.447hw.mongodb.net/?retryWrites=true&w=majority&appName=namasteAshish";
 const User = require('./usermodel')
+const https = require('https');
+const cors = require('cors');
 
+
+app.use(cors({
+    origin: 'https://www.ashishvalvi.in'
+}));
 
 app.use(express.json());// parse incoming json req
 mongoose.connect(mongoURI).then(()=>{
